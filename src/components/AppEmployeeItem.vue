@@ -1,10 +1,19 @@
 <template>
-  <li class="text-black p-4 rounded d-flex justify-content-between mb-3 shadow align-items-center">
+  <li class="text-black p-4 rounded d-flex justify-content-between flex-wrap mb-3 shadow align-items-center">
     <strong>{{ person.name }}</strong>
     <div class="item-wrapper d-flex justify-content-between align-items-center">
-      <strong>{{ person.salary.toLocaleString() }}</strong>
+      <input class="align-items-center w-25 border-2"
+             v-if="isEdit"
+             type="text"
+             v-model="salaryVal">
+      <strong v-else>{{ person.salary.toLocaleString() }}</strong>
+
 
       <div class="item-widgets">
+        <i v-if="!isEdit" class="bi bi-pencil-square" @click="editSalary"></i>
+
+        <i v-else class="bi bi-save" @click="editSalary"></i>
+
         <i class="bi bi-arrow-up-square" :style="iconStylePromo" @click="iconStyleChangePromo"></i>
 
         <i class="bi bi-star" :style="iconStyleBonus" @click="iconStyleChangeBonus"></i>
@@ -26,37 +35,31 @@ export default {
       type: Object,
       required: true,
     },
-    bonus: {
-      type: Number,
-      required: true,
-    },
-    promo: {
-      type: Number,
-      required: true,
-    }
   },
   data() {
     return {
-      isCheckedPromo: false,
-      isCheckedBonus: false,
+      isEdit: false,
+      salaryVal: this.person.salary,
     }
   },
   computed: {
     iconStylePromo() {
-      return this.isCheckedPromo ? 'color: #3bce36' : '';
+      return this.person.isCheckedPromo ? 'color: #3bce36' : '';
     },
     iconStyleBonus() {
-      return this.isCheckedBonus ? 'color: #f39732' : '';
+      return this.person.isCheckedBonus ? 'color: #fccf38' : '';
     }
   },
   methods: {
+    editSalary() {
+      this.isEdit = !this.isEdit;
+      this.$emit('changeSalary', this.person.id, parseInt(this.salaryVal));
+    },
     iconStyleChangePromo() {
-      this.isCheckedPromo = !this.isCheckedPromo;
-      this.$emit('promoCheck', this.isCheckedPromo);
+      this.$emit('promoCheck', this.person.id, this.person.isCheckedPromo);
     },
     iconStyleChangeBonus() {
-      this.isCheckedBonus = !this.isCheckedBonus;
-      this.$emit('bonusCheck', this.isCheckedBonus);
+      this.$emit('bonusCheck', this.person.id, this.person.isCheckedBonus);
     },
     delEmployee() {
       this.$emit('delEmployee');
@@ -87,15 +90,24 @@ export default {
   transition: color 0.3s ease-in-out;
 }
 
+.bi-pencil-square {
+  color: #f39732;
+}
+
+.bi-save {
+  margin-right: 40px;
+  color: #3bce36;
+}
+
 .bi-arrow-up-square {
   &:hover {
-    color: #3bce36;
+    color: #3881e5;
   }
 }
 
 .bi-star {
   &:hover {
-    color: #f39732;
+    color: #fccf38;
   }
 }
 

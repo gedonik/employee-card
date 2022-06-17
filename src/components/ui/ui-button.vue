@@ -22,4 +22,10 @@ export default {
   color: #000 !important;
   background-color: #fff;
 }
+
+@media (max-width: 650px) {
+  .button {
+    font-size: 12px;
+  }
+}
 </style>

@@ -9,9 +9,33 @@
         placeholder="Найти сотрудника"
     >
     <div class="btn-group">
-      <ui-button class="button-active">Все сотрудники</ui-button>
-      <ui-button>На повышение</ui-button>
-      <ui-button>З/П больше 100 тыс.</ui-button>
+      <ui-button
+          :class="activeBtn === 'all' ? 'button-active' : ''"
+          @click="activeAll"
+      >
+        Все сотрудники
+      </ui-button>
+
+      <ui-button
+          :class="activeBtn === 'raise' ? 'button-active' : ''"
+          @click="activeRaise"
+      >
+        На повышение
+      </ui-button>
+
+      <ui-button
+          :class="activeBtn === 'salaryMore' ? 'button-active' : ''"
+          @click="activeSalaryMore"
+      >
+        З/П больше 100 тыс.
+      </ui-button>
+
+      <ui-button
+          :class="activeBtn === 'bonus' ? 'button-active' : ''"
+          @click="activeBonus"
+      >
+        На премию
+      </ui-button>
     </div>
 
   </div>
@@ -24,6 +48,24 @@ export default {
     modelValue: {
       type: String,
       required: true,
+    },
+    activeBtn: {
+      type: String,
+      required: true,
+    }
+  },
+  methods: {
+    activeAll() {
+    this.$emit('changeActiveBtn', 'all')
+    },
+    activeRaise() {
+      this.$emit('changeActiveBtn', 'raise')
+    },
+    activeSalaryMore() {
+      this.$emit('changeActiveBtn', 'salaryMore')
+    },
+    activeBonus() {
+      this.$emit('changeActiveBtn', 'bonus')
     }
   }
 }

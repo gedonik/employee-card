@@ -15,14 +15,12 @@ export default {
     employees: {
       type: Array,
       required: true,
-    }
+    },
   },
   data() {
     return {
       name: '',
       salary: '',
-      isCheckedBonus: true,
-      isCheckedPromo: false,
       id: 5,
     }
   },
@@ -37,8 +35,8 @@ export default {
         name: this.name,
         salary: this.salary,
         id: this.id++,
-        isCheckedBonus: this.isCheckedBonus,
-        isCheckedPromo: this.isCheckedPromo,
+        isCheckedBonus: false,
+        isCheckedPromo: false
       }
 
       this.$emit('addEmployee', newEmployee);
