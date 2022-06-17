@@ -1,19 +1,18 @@
 <template>
 
-  <div v-if="employees.length === 0" class="mb-4 text-center">
+  <div v-if="filteredEmployees.length === 0" class="mb-4 text-center">
     <strong>Сотрудники не обнаружены</strong>
   </div>
 
-  <ul v-else class="d-flex flex-md-column mb-4">
+  <ul v-else class="d-flex flex-md-column mb-4 flex-column">
     <AppEmployeeItem
-        v-for="person in employees"
+        v-for="person in filteredEmployees"
         :key="person.id"
         :person="person"
         @delEmployee="delEmployee(person)"
-        :bonus="bonus"
-        :promo="promo"
         @promoCheck="promoCheck"
         @bonusCheck="bonusCheck"
+        @changeSalary="changeSalary"
     />
 
   </ul>
@@ -26,28 +25,23 @@ export default {
   name: "AppListEmployees",
   components: {AppEmployeeItem},
   props: {
-    employees: {
+    filteredEmployees: {
       type: Array,
       required: true,
     },
-    bonus: {
-      type: Number,
-      required: true,
-    },
-    promo: {
-      type: Number,
-      required: true,
-    }
   },
   methods: {
+    changeSalary(id, salary) {
+      this.$emit('changeSalary', id, salary);
+    },
     delEmployee(person) {
       this.$emit('delEmployee', person);
     },
-    promoCheck(isCheckedPromo) {
-      this.$emit('promoCheck', isCheckedPromo);
+    promoCheck(id, isCheckedPromo) {
+      this.$emit('promoCheck', id, isCheckedPromo);
     },
-    bonusCheck(isCheckedBonus) {
-      this.$emit('bonusCheck', isCheckedBonus);
+    bonusCheck(id, isCheckedBonus) {
+      this.$emit('bonusCheck', id, isCheckedBonus);
     }
   }
 }
