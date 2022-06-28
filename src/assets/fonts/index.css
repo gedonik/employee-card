@@ -1,5 +1,8 @@
 @font-face {
-    font-style: normal;
+    font-family: "MyriadPro";
     font-weight: 400;
-    font-family: MyriadPro, sans-serif;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("MyriadPro"), url("../fonts/MyriadPro-Regular.woff2") format("woff2");
 }

@@ -80,7 +80,6 @@ export default {
     },
     changeSalary(id, salary) {
       this.employees = this.employees.map(employee => employee.id === id ? {...employee, salary: salary} : employee);
-      console.log(this.employees);
     },
     addEmployee(employee) {
       if (employee.name !== '' && employee.salary !== '') {
@@ -111,7 +110,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-
-</style>

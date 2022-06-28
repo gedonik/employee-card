@@ -5,7 +5,9 @@
       <input class="align-items-center w-25 border-2"
              v-if="isEdit"
              type="text"
-             v-model="salaryVal">
+             v-model="salaryVal"
+             autofocus
+      >
       <strong v-else>{{ person.salary.toLocaleString() }}</strong>
 
 
@@ -44,7 +46,7 @@ export default {
   },
   computed: {
     iconStylePromo() {
-      return this.person.isCheckedPromo ? 'color: #3bce36' : '';
+      return this.person.isCheckedPromo ? 'color: #3881e5' : '';
     },
     iconStyleBonus() {
       return this.person.isCheckedBonus ? 'color: #fccf38' : '';
@@ -95,7 +97,6 @@ export default {
 }
 
 .bi-save {
-  margin-right: 40px;
   color: #3bce36;
 }
 
@@ -114,6 +115,23 @@ export default {
 .bi-trash {
   &:hover {
     color: #ea3939;
+  }
+}
+
+@media (max-width: 750px) {
+  .item-wrapper {
+    max-width: 250px;
+  }
+
+  .item-widgets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .item-wrapper {
+    max-width: 180px;
   }
 }
 </style>
