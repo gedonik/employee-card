@@ -40,11 +40,11 @@ export default {
   data() {
     return {
       employees: [
-        {id: 0, name: 'Владимир А.', salary: 95000, isCheckedPromo: false, isCheckedBonus: false},
-        {id: 1, name: 'Виктор Ш.', salary: 125000, isCheckedPromo: false, isCheckedBonus: false},
-        {id: 2, name: 'Александр Б.', salary: 150000, isCheckedPromo: false, isCheckedBonus: false},
-        {id: 3, name: 'Олег В.', salary: 85000, isCheckedPromo: false, isCheckedBonus: false},
-        {id: 4, name: 'Андрей П.', salary: 100000, isCheckedPromo: false, isCheckedBonus: false},
+        {id: 0, name: 'Бирюкова Л.В.', salary: 95000, isCheckedPromo: false, isCheckedBonus: false},
+        {id: 1, name: 'Меркулов И.Д.', salary: 125000, isCheckedPromo: false, isCheckedBonus: false},
+        {id: 2, name: 'Калинина М.Е.', salary: 150000, isCheckedPromo: false, isCheckedBonus: false},
+        {id: 3, name: 'Смирнов Р.А.', salary: 85000, isCheckedPromo: false, isCheckedBonus: false},
+        {id: 4, name: 'Афанасьев Е.Д.', salary: 100000, isCheckedPromo: false, isCheckedBonus: false},
       ],
       bonus: 0,
       promo: 0,
