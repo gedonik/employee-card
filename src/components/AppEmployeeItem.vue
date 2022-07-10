@@ -10,17 +10,16 @@
       >
       <strong v-else>{{ person.salary.toLocaleString() }}</strong>
 
-
       <div class="item-widgets">
-        <i v-if="!isEdit" class="bi bi-pencil-square" @click="editSalary"></i>
+        <i v-if="!isEdit" class="bi bi-pencil-square" @click="editSalary" title="Редактировать"></i>
 
-        <i v-else class="bi bi-save" @click="editSalary"></i>
+        <i v-else class="bi bi-save" @click="editSalary" title="Сохранить"></i>
 
-        <i class="bi bi-arrow-up-square" :style="iconStylePromo" @click="iconStyleChangePromo"></i>
+        <i class="bi bi-arrow-up-square" :style="iconStylePromo" @click="iconStyleChangePromo" title="Повысить"></i>
 
-        <i class="bi bi-star" :style="iconStyleBonus" @click="iconStyleChangeBonus"></i>
+        <i class="bi bi-star" :style="iconStyleBonus" @click="iconStyleChangeBonus" title="Премировать"></i>
 
-        <button @click="delEmployee(person)" class="btn delete--btn">
+        <button @click="delEmployee(person)" class="btn delete--btn" title="Удалить">
           <i class="bi bi-trash"></i>
         </button>
       </div>
