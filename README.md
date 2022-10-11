@@ -1,24 +1,26 @@
-# employees-card
 
-## Project setup
-```
-npm install
-```
+# Employees-card is a Vue application.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Vue app demonstration with bootstrap library.
 
-### Compiles and minifies for production
-```
-npm run build
+
+## Installation
+
+Clone my project, after type in terminal:
+
+```bash
+  npm install 
+  npm run serve
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Tech Stack
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+HTML, CSS, SCSS, Vue, Bootstrap, Bootstrap-icons.
+
+## Demo
+
+https://gedonik.club/employees-card/
+
+## Screenshots
+
+![App Screenshot](https://i.postimg.cc/zfTWKLZJ/employees-card.jpg)
