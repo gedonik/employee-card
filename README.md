@@ -19,7 +19,7 @@ HTML, CSS, SCSS, Vue, Bootstrap, Bootstrap-icons.
 
 ## Demo
 
-https://gedonik.club/employees-card/
+https://www.gedonik.ru/employees-card/
 
 ## Screenshots
 
